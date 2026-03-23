@@ -1,0 +1,54 @@
+<!-- <h1>Acesso do Administrador</h1>
+<h2>Login</h2>
+<div>
+<label for="user">Usuário:  </label>
+<input type="text" name="user" placeholder="Nome do usuário">
+</div>
+<div>
+<label for="password">Senha:  </label>
+<input type="password" name="password" placeholder="Senha">
+</div>
+<button>Entrar</button> -->
+
+<app-message-modal #modal></app-message-modal>
+
+<div class="admin-container">
+    <div class="admin-card">
+        <h1 class="admin-title">Acesso do Administrador</h1>
+        <h2 class="admin-subtitle">Login</h2>
+
+        <div class="form-group">
+            <label for="user">Usuário</label>
+            <input 
+                type="text" 
+                id="user"
+                [(ngModel)]="user"
+                name="user" 
+                placeholder="Nome do usuário"
+                class="input-field"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">Senha</label>
+            <input 
+                type="password" 
+                id="password"
+                [(ngModel)]="password"
+                name="password" 
+                placeholder="Senha"
+                class="input-field"
+            >
+        </div>
+
+        <button class="login-btn" (click)="login()">Efetuar Login</button>
+    </div>
+
+    <div >        
+        <!-- <button class="back_button" [routerLink]="['/']">Voltar para a Home</button>          -->
+        <button class="back_button" (click)="goHome()">Voltar para a Home</button>    
+    </div>
+    
+</div>
+
+

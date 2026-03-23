@@ -1,0 +1,101 @@
+/* fundo da página */
+.admin-container {
+    height: 84vh;
+    background: linear-gradient(135deg, #ffffff, #d8dbee);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* card central */
+.admin-card {
+    background-color: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    width: 380px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* títulos */
+.admin-title {
+    text-align: center;
+    font-size: 26px;
+    color: #1e3a8a;
+}
+
+.admin-subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+/* grupo label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* label */
+.form-group label {
+    font-weight: 600;
+    color: #334155;
+}
+
+/* inputs */
+.input-field {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* efeito foco */
+.input-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.4);
+}
+
+/* botão */
+.login-btn, .back_button {
+    margin-top: 15px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #3b82f6;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* hover botão */
+.login-btn:hover, .back_button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* clique botão */
+.login-btn:active, .back_button:active{
+    transform: translateY(0);
+}
+
+.back_button {
+    background-color: #363e4b;
+    margin-top: 5em;
+}

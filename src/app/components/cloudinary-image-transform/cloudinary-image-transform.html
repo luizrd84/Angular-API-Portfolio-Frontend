@@ -1,0 +1,16 @@
+<div class="image-wrapper" style="width: auto;" [style.height.px]="height">
+  <!-- skeleton shimmer enquanto carrega -->
+
+  @if (!loaded) {
+    <div class="skeleton"></div>
+  }
+
+  <!-- imagem real -->
+  <img 
+    [src]="src" 
+    [alt]="alt" 
+    loading="lazy"
+    (load)="loaded = true"
+    [class.loaded]="loaded"    
+    [style.height.px]="height">
+</div>

@@ -1,0 +1,55 @@
+
+<div class="carousel">
+
+  <!-- Botão esquerda -->
+  <div class="side left" (click)="prev()">
+    <span class="arrow">❮</span>
+  </div>
+
+  <!-- Área da imagem -->
+  <div class="image-area" [style.height.px]="height">
+
+    @if (!loaded) {
+      <div class="skeleton"></div>
+    }
+ 
+    @if (imagesList.length > 0) {
+        <img
+          [src]="imagesList[currentIndex]?.imageUrl"
+          [alt]="imagesList[currentIndex]?.alt"
+          [style.max-height.px]="height"
+          (load)="onLoad()"
+          [class.visible]="loaded"
+          loading="lazy"
+        />
+    }
+    @else {
+      <img
+          [src]="urlNoImage"
+          [alt]="'Sem imagem para exibir'"
+          [style.max-height.px]="height"
+          (load)="onLoad()"
+          [class.visible]="loaded"
+          loading="lazy"
+        />
+    }
+
+  </div>
+
+  <!-- Botão direita -->
+  <div class="side right" (click)="next()">
+    <span class="arrow">❯</span>
+  </div>
+
+</div>
+
+
+<p class="description">
+  @if (imagesList.length > 0) {
+    {{ imagesList[currentIndex].description }}
+  }
+  @else {
+    Sem imagem para exibir
+  }
+</p>
+

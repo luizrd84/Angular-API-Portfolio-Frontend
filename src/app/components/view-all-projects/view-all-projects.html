@@ -1,0 +1,42 @@
+<app-message-modal #modal></app-message-modal>
+
+<div class="title_container">
+    <h1>Meu Portfólio</h1>    
+</div>
+
+<div class="aboutme">
+    <p>Este portfólio foi criado para reunir e apresentar projetos desenvolvidos durante meus estudos em desenvolvimento de software. </p>
+    <p>Cada projeto representa uma oportunidade de aprendizado, onde busco aplicar conceitos importantes de programação, boas práticas de desenvolvimento e diferentes tecnologias.</p>    
+    <p>A ideia é compartilhar minha evolução como desenvolvedor e demonstrar, por meio de projetos práticos, as habilidades que venho construindo ao longo da minha jornada na área de tecnologia.</p> 
+</div>
+
+<div class="subtitle_container">
+    <h2>Meus Projetos</h2>
+</div>
+
+<div class="card_projects_container">
+    @for (card of cardProjects; track card.id) {        
+        <app-project-small-card
+            [photoCover]="card.image"
+            [cardTitle]="card.title"
+            [tecnologies]="card.technologies"
+            [projectId]="card.id"
+            [routeDetails]="`projetos/${card.id}`"
+            [isAdmin]="tokenIsValid"
+            (delete)="deleteProject($event)"
+            [routeEdit]="`projetos/edit/${card.id}`"
+            
+        > 
+        </app-project-small-card>    
+        <!-- (edit)="editProject($event)"> -->
+    }    
+
+</div>
+
+<div class="button_container">
+    <button [routerLink]="['/adicionarprojeto']" 
+        [disabled]="!tokenIsValid">Adicionar um novo projeto
+    </button>
+
+</div>
+ 

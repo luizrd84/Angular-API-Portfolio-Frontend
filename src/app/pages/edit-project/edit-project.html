@@ -1,0 +1,155 @@
+
+<app-message-modal #modal></app-message-modal>
+
+<div class="form_container">
+
+    <div class="new-container">
+        <h1>Adicionar um novo Projeto</h1>
+    </div>
+
+    <div class="new-container">       
+
+        <label for="name">Nome do projeto:</label>
+        <input type="text" [(ngModel)]="project.title" name="title" id="name" placeholder="Nome do Projeto">
+
+        <label for="description">Descrição do projeto:</label>
+        <textarea [(ngModel)]="project.description" name="description" id="description"></textarea>
+
+        <label for="date">Projeto elaborado em: - mudar para tipo data 02/2025</label>
+        <input type="month" [(ngModel)]="createdAt" name="createdAt" id="data">
+
+        <label for="urlGit">URL do projeto no GitHub:</label>
+        <input type="text" [(ngModel)]="project.githubUrl" name="urlGit" id="urlGit" placeholder="URL GitHub">
+
+        <label for="urlDemo">URL da demo do projeto:</label>
+        <input type="text" [(ngModel)]="project.demoUrl" name="urlDemo" id="urlDemo" placeholder="URL da Demo">
+    </div>
+
+    <div class="file_upload_container">
+        <h3>Tecnologias utilizadas no projeto:</h3>        
+        <p>Selecione tecnologias da lista abaixo ou inclua novas.</p>
+        <p>Busque os ícones em https://devicon.dev/</p>
+    </div>  
+
+    <div class="tecnologies_to_select">
+
+        @for (tech of existingTechnologies; track tech.id; let i = $index) {
+            <label>
+            <input
+                type="checkbox"
+                [(ngModel)]="tech.selected"
+                name="tech_{{i}}"
+            />
+            {{ tech.name }}
+            </label>            
+        }
+
+    </div>
+
+
+    @for (tech of newTechnologies; track tech; let i = $index) {
+
+        <div class="new-container">
+
+            <div class="new-button-container">
+                <button type="button" (click)="removeNewTechnology(i)" class="remove_button">
+                    ✖
+                </button>
+            </div>
+
+            <label>Nome da tecnologia:</label>
+            <input
+            type="text"
+            [(ngModel)]="tech.name"
+            name="newTechName_{{i}}"
+            placeholder="Nome da tecnologia"
+            />
+
+            <label>Logo da tecnologia:</label>
+            <input
+            type="text"
+            [(ngModel)]="tech.logo"
+            name="newTechLogo_{{i}}"
+            placeholder="URL da logo"
+            />
+
+        </div>
+
+    }
+
+    <div class="add_image_button_container">
+        <button type="button" (click)="addNewTechnology()" >
+            Adicionar Tecnologia
+        </button>
+    </div>
+
+
+    <div class="file_upload_container">
+        <h3>Upload de Arquivos</h3>
+        <p>Adicione quantos arquivos desejar.</p>
+        <p>Permitido incluir imagens locais que serão enviadas para o Cloudinary e também links</p>
+
+    </div>    
+
+        @for (item of imageItems; track item; let i = $index) {
+
+            <div class="file_upload_container">
+            <!-- file-item"> -->
+
+                <div class="new-button-container">
+                    <button type="button" (click)="removeItem(i)" class="remove_button">
+                        ✖
+                    </button>
+                </div>
+
+                <!-- input escondido -->
+                <input
+                    type="file"
+                    #fileInput
+                    (change)="onFileSelected($event, item)"
+                    accept="image/*,video/*"
+                    hidden
+                />
+
+                <!-- URL ou nome do arquivo -->
+                <label>Endereço da imagem:</label>
+                <input type="text" [(ngModel)]="item.imageUrl" placeholder="Link ou arquivo" name="newImage{{i}}"/>
+
+                <!-- botão para escolher arquivo -->
+                <button (click)="fileInput.click()">Selecionar arquivo</button>
+
+                <!-- ALT -->
+                <label>Alt da imagem:</label>
+                <input type="text" [(ngModel)]="item.alt" name="newImageAlt{{i}}"/>
+
+                <!-- DESCRIÇÃO -->
+                <label>Descrição:</label>
+                <input type="text" [(ngModel)]="item.description" name="newImageDesc{{i}}"/>
+
+                <!-- IMAGEM PRINCIPAL -->
+                <label>
+                    <input
+                    type="checkbox"
+                    [checked]="item.isPrimary"
+                    (change)="setPrimary(item)"
+                    />
+                    Imagem principal
+                </label>
+
+            </div>
+        }
+
+    <div class="add_image_button_container">
+        <button (click)="addNewItemImage()">Adicionar novo arquivo</button>
+    </div>
+    
+
+
+    
+    <div class="new-container">
+        <button (click)="salvarProject()">Salvar Projeto</button>
+        <button (click)="goHome()">Voltar para a Home</button>
+    </div>
+    
+
+</div>

@@ -1,0 +1,68 @@
+.container_menu-bar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: #070744;
+
+  padding: 1.2em 0;
+}
+
+/* Área do menu (90%) */
+.container_menu-bar_left {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+}
+
+.container_menu-bar_left a {
+  text-decoration: none;
+  color: #d2d6dd;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.container_menu-bar_left a:hover {
+  color: #2563eb;
+}
+
+.container_menu-bar_left span {
+  color: #9ca3af;
+}
+
+/* Lista do menu */
+.container_menu-bar_left ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1em;
+}
+
+/* Área do botão (10%) */
+.container_button {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1em;
+}
+
+.container_button button {
+  width: 10em;
+  padding: 0.5em 1em;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #374151;
+  color: white;
+
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: background-color 0.2s ease;
+}
+
+.container_button button:hover {
+  background-color: #1f2937;
+}

@@ -1,0 +1,68 @@
+<div class="page_container">
+
+<div class="title_container">
+    <h1>Projeto: {{ project?.title }}</h1>
+</div>
+
+<div class="informations_container">
+    <p><strong> Descrição: </strong> {{ project?.description }}</p>
+
+    <p><strong>Projeto criado em: </strong> {{ project?.createdAt| date:'MM/yyyy'}}</p>
+
+    <p><strong>Tecnologias utilizadas nesse projeto: </strong></p>
+
+    <div class="technologies_container">
+    @if(technologies.length > 0) {
+        <ul>
+        @for (tech of technologies; track tech.id) {
+            <li>
+                <img src="{{tech.url}}" alt="">
+                {{ tech.name }}
+            </li>
+        }         
+        </ul>
+    }
+    @else {
+        <ul>
+            <li>-</li>                
+        </ul>
+    }
+    </div>
+    
+</div>
+
+<div class="images_carousel">
+    <h2>Imagens do Projeto:</h2>
+    <app-carousel [imagesList]="images"></app-carousel>
+</div>
+
+<div class="links_container">
+    
+        <p><strong> Código do projeto no GitHub: </strong>
+            @if (project?.githubUrl) {
+                <a [href]="project?.githubUrl" target="_blank">
+                    {{ project?.githubUrl }}
+                </a>
+            } @else {
+                -
+            }            
+        </p>   
+    
+        <p><strong>Demonstração do projeto disponível em: </strong>
+            @if (project?.demoUrl) {
+                <a [href]="project?.demoUrl" target="_blank">
+                    {{ project?.demoUrl }}
+                </a>
+            } @else {
+                -
+            }                        
+        </p>
+    
+</div>
+
+<div class="back_button">
+    <button (click)="goHome()">Retornar</button>
+</div>
+
+
+</div>

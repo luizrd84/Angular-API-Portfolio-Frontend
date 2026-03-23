@@ -1,0 +1,145 @@
+/* Container geral */
+:host {
+  display: block;
+  padding: 2rem 1.5rem 4rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+}
+
+/* ===== TÍTULO ===== */
+.title_container {
+  margin-bottom: 2rem;
+  border-left: 6px solid #2563eb;
+  padding-left: 1rem;
+}
+
+.title_container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ===== INFORMAÇÕES ===== */
+.informations_container {
+  /* background: #f9fafb; */
+  background: #eef2ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.technologies_container ul {
+    display: flex;          
+    justify-content: start;
+    gap: 20px;
+    list-style: none;      
+    padding: 0;
+    margin: 0;
+}
+
+.technologies_container li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
+    background-color: white;
+}
+
+.technologies_container li:hover {
+    background: rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+/* imagem */
+.technologies_container img {
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.informations_container p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.informations_container ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.informations_container li {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+/* ===== CAROUSEL ===== */
+.images_carousel {
+  margin-bottom: 2rem;
+}
+
+.images_carousel h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Caso queira mudar só cores do componente filho */
+.images_carousel app-carousel {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== LINKS ===== */
+.links_container {
+  background: #eef2ff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.links_container p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.links_container a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.links_container a:hover {
+  text-decoration: underline;
+}
+
+/* ===== BOTÃO ===== */
+.back_button {
+  text-align: center;
+}
+
+.back_button button {
+  background: #2563eb;
+  color: white;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back_button button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.back_button button:active {
+  transform: translateY(0);
+}

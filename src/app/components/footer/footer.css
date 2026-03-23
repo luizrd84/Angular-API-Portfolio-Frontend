@@ -1,0 +1,16 @@
+.container_footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #070744;
+
+    margin: 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.container_footer p {
+    font-size: 20px;
+    color: #d2d6dd;
+}
