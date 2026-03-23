@@ -49,7 +49,7 @@ Siga os passos abaixo para executar o projeto localmente.
 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/usuario/portfolio-backend.git
+git clone https://github.com/luizrd84/Node.js-API-Portfolio-Backend.git
 ```
 
 2. Acessar a pasta do projeto
@@ -93,7 +93,7 @@ Siga os passos abaixo para executar o projeto localmente.
 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/usuario/portfolio-frontend.git
+git clone https://github.com/luizrd84/Angular-API-Portfolio-Frontend.git
 ```
 
 2. Acessar a pasta do projeto
