@@ -13,6 +13,8 @@ import { AuthService } from '../../services/authService';
 import { inject } from '@angular/core';
 import { MessageModal } from '../../components/message-modal/message-modal';
 import { viewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../../app.config';
 
 @Component({
   selector: 'app-view-all-projects',
@@ -27,20 +29,50 @@ export class ViewAllProjects {
   cdr = inject(ChangeDetectorRef);
   authService = inject(AuthService);
   projectService = inject(ProjectService)
+  http = inject(HttpClient);
 
   tokenIsValid : boolean = false;
 
   //Modal para exibir mensagens na tela
   modal = viewChild<MessageModal>('modal');
 
+  backendOnline:boolean = false;
+  loadingBackend:boolean = true; //true é o padrão
+  isAlive:boolean = true;
+
   constructor() {  }
 
   async ngOnInit() {
     this.tokenIsValid = !this.authService.isTokenExpired();
 
-    this.loadData();
+    this.checkBackend();
+    
+    // this.loadData(); //Transferido para o checkBackend
+     
+  }
 
-    // this.cdr.markForCheck();      
+  ngOnDestroy() {
+    this.isAlive = false;
+  }
+
+  checkBackend() {
+    this.http.get(`${API_URL}/`, { responseType: 'text' })
+      .subscribe({
+        next: () => {
+          console.log("Backend online");
+
+          this.backendOnline = true;
+          this.loadingBackend = false;
+
+          //Transferi do ngOnInit para esse método.
+          this.loadData();
+        },
+        error: (err) => {          
+          if (!this.backendOnline && this.isAlive) {
+            setTimeout(() => this.checkBackend(), 3000);
+          }
+        }
+      });
   }
 
   deleteProject(id: number) {    
@@ -49,6 +81,7 @@ export class ViewAllProjects {
         this.mostrarModal('Sucesso', `Projeto deletado com sucesso`, 'Ok');
         this.loadData();
         this.cdr.markForCheck();  
+        
       },
       error: (err) => {
         this.mostrarModal('Erro', `Erro ao deletar o projeto`, 'Ok');
@@ -57,16 +90,6 @@ export class ViewAllProjects {
     });     
   }
 
-  // editProject(id: number) {
-
-  //   //chamar uma pagina nova...
-
-
-  //   //this.mostrarModal('Teste', `Clicou em editar projeto: ${id}`, 'Ok');
-
-  // }
-
- 
 
   mostrarModal(title:string, message:string, button:string) { 
     const modalInstance = this.modal();   

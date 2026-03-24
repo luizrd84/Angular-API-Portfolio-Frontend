@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
 
-  private apiUrl = 'http://localhost:3000/auth/login';
+  // private apiUrl = 'http://localhost:3000/auth/login';
+  private apiUrl = 'https://meu-portfolio-backend-latest.onrender.com/auth/login';
 
   private isAdmin = signal(false);
 
@@ -18,19 +19,10 @@ export class AuthService {
   postLogin(data: any) {
     return this.http.post(`${this.apiUrl}`, data);
   }
-
-
-    
+   
 
   loginAdmin() {
     this.isAdmin.set(true);
-
-    //Salvar o token desta forma...
-    //localStorage.setItem('isAdmin', 'true');
-
-
-
-
   }
 
   logout() {

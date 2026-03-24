@@ -118,3 +118,49 @@ app-project-small-card {
 app-project-small-card:hover {
   transform: translateY(-6px);
 }
+
+
+.loading_container {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #7c7878;
+}
+
+/* Spinner animado */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #444;
+  border-top: 5px solid #ff4d4d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Animação */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading_container h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.loading_container p {
+  max-width: 400px;
+  font-size: 16px;
+  color: #bbb;
+}
+
+.highlight {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff4d4d;
+}

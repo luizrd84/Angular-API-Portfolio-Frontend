@@ -122,9 +122,39 @@ http://localhost:4200
 
 - Certifique-se de que o **backend esteja rodando** antes de iniciar o frontend.
 
+## Cadastrando o usuário master
+
+- Para acessar o sistema inicialmente, é necessário criar um usuário administrador (master).
+
+```
+database/seed.ts
+```
+
+1. Acesse o arquivo de seed e ajuste os dados conforme desejado:
+
+2. Preparar o banco de dados
+
+- Antes de executar o seed, é necessário que as tabelas já existam.
+- As tabelas são criadas automaticamente na primeira execução do backend.
+
+3. Executar o seed
+
+- Com o banco já inicializado, rode o comando:
+
+```bash
+npx tsx database/seed.ts
+```
+
 ## Demonstração do projeto
 
-- Em construção
+- A aplicação está disponível no endereço:
+
+```
+https://meu-portfolio-frontend.onrender.com/
+```
+
+- **Nota**: A aplicação está hospedada no Render utilizando o plano gratuito.
+  Isso significa que o backend pode entrar em modo de hibernação após períodos sem uso, ocasionando um pequeno atraso (cold start) no primeiro acesso.
 
 ## Funcionalidades da aplicação
 

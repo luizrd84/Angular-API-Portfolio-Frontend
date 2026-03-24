@@ -14,24 +14,41 @@
     <h2>Meus Projetos</h2>
 </div>
 
-<div class="card_projects_container">
-    @for (card of cardProjects; track card.id) {        
-        <app-project-small-card
-            [photoCover]="card.image"
-            [cardTitle]="card.title"
-            [tecnologies]="card.technologies"
-            [projectId]="card.id"
-            [routeDetails]="`projetos/${card.id}`"
-            [isAdmin]="tokenIsValid"
-            (delete)="deleteProject($event)"
-            [routeEdit]="`projetos/edit/${card.id}`"
-            
-        > 
-        </app-project-small-card>    
-        <!-- (edit)="editProject($event)"> -->
-    }    
+@if (loadingBackend) {
+  <div class="loading_container">
 
-</div>
+    <div class="spinner"></div>
+
+    <h2>Inicializando servidor...</h2>
+
+    <p>
+      Este projeto está hospedado no Render (plano gratuito),
+      então pode levar alguns segundos para responder.
+    </p>
+
+    <p class="highlight">Aguarde um instante 🚀</p>
+
+  </div>
+} @else {
+
+  <div class="card_projects_container">
+    @for (card of cardProjects; track card.id) {        
+      <app-project-small-card
+        [photoCover]="card.image"
+        [cardTitle]="card.title"
+        [tecnologies]="card.technologies"
+        [projectId]="card.id"
+        [routeDetails]="`projetos/${card.id}`"
+        [isAdmin]="tokenIsValid"
+        (delete)="deleteProject($event)"
+        [routeEdit]="`projetos/edit/${card.id}`"
+      > 
+      </app-project-small-card>    
+    }    
+  </div>
+
+}
+
 
 <div class="button_container">
     <button [routerLink]="['/adicionarprojeto']" 

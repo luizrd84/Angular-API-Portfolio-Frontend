@@ -17,3 +17,5 @@ export const appConfig: ApplicationConfig = {
   ]
 
 };
+
+export const API_URL = 'https://meu-portfolio-backend-latest.onrender.com';

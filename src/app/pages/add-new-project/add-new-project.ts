@@ -209,20 +209,20 @@ export class AddNewProject {
     } 
     
     if (!this.project.title || !this.project.description || !this.createdAt) {
-      this.mostrarModal('Erro', 'Preencha todos os dados', 'Ok');
+      this.mostrarModal('Erro', 'Preencha todos os dados1', 'Ok');
       return false;
     }
 
     for (const image of this.imageItems) {
       if (!image.imageUrl || !image.alt || !image.description) {      
-        this.mostrarModal('Erro', 'Preencha todos os dados', 'Ok');  
+        this.mostrarModal('Erro', 'Preencha todos os dados2', 'Ok');  
         return false; 
       }
     }
 
     for (const tech of this.newTechnologies) {
-      if (!tech.name || tech.logo) {        
-        this.mostrarModal('Erro', 'Preencha todos os dados', 'Ok');
+      if (!tech.name || !tech.logo) {        
+        this.mostrarModal('Erro', 'Preencha todos os dados3', 'Ok');
         return false; 
       }
     }
