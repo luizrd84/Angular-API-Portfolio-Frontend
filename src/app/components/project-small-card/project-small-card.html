@@ -1,24 +1,22 @@
 
 <div class="project_card">
-    <!-- <img
-        [src]="photoCover || 'https://via.placeholder.com/300'"
-        (error)="photoCover = 'https://via.placeholder.com/300'"
-        alt=""
-    /> -->
-    <!-- <img src="{{photoCover}}" alt=""> -->
     <img [src]="photoCover || ''" alt="">
 
     <div class="project_info">
-        <p class="project_title">Nome do Projeto: {{cardTitle}}</p>
+        <p class="project_title">Projeto: {{cardTitle}}</p>
         
         @if (tecnologies.length > 0) {
             <ul class="tech_list">
-                @for (tech of tecnologies; track tech; let last = $last) {
-                    <li>
-                        <img src="{{tech.url}}" alt="">
-                        {{tech.name}}
-                        <!-- se quiser o logo também, só usar -->
-                    </li>
+                @for (tech of tecnologies; track tech;let i = $index; let last = $last) {
+                    @if (i < 4) {
+                        <li>
+                            <img src="{{tech.url}}" alt="">
+                            {{tech.name}}                          
+                        </li>
+                    }
+                    @if (i === 3 && tecnologies.length > 4) {
+                        <li class="demais_itens">+{{ tecnologies.length - 4 }}</li>
+                    }
                 }    
             </ul>
         }
@@ -41,7 +39,7 @@
             @else {
                 <button class="details_btn">Editar</button>
             }
-            <!-- <button class="details_btn" (click)="onEdit()">Editar</button> -->
+          
             <button class="details_btn" (click)="onDelete()">Deletar</button>
         }
     </div>

@@ -17,7 +17,7 @@ export class ProjectSmallCard {
   @Input()
   tecnologies:TechnologyModel[] = [];
   @Input()
-  isAdmin: boolean = true; //mudar o true por uma variavel de segurança. ver onde colocar isso. 
+  isAdmin: boolean = true; 
   @Input()
   projectId: number = 0;
   @Input()
@@ -39,10 +39,5 @@ export class ProjectSmallCard {
   onDelete() {
     this.delete.emit(this.projectId);
   }
-
-  // onEdit() {
-  //   this.edit.emit(this.projectId);
-  // }
-
 
 }

@@ -66,3 +66,24 @@
 .container_button button:hover {
   background-color: #1f2937;
 }
+
+@media (max-width: 768px) {
+  .container_menu-bar_left {
+    padding: 0.5em 0;
+  }
+  .container_menu-bar_left a {
+    font-size: 12px;
+  }
+
+  .container_menu-bar_left li {
+    font-size: 10px;
+  }
+
+  button {
+    font-size: 8px ;
+  }
+
+  .container_menu-bar_left ul {   
+    gap: 0.5em;
+  }
+}

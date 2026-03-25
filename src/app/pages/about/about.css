@@ -1,5 +1,5 @@
 
-/* corpo da página */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f7fa;
@@ -8,7 +8,6 @@ body {
     padding: 20px;
 }
 
-/* header da foto + infos */
 .profile-header {
     display: flex;
     align-items: center;
@@ -19,14 +18,14 @@ body {
     justify-content: center;
 }
 
-/* infos ao lado da foto */
+
 .profile-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* nome maior e cor diferente */
+
 .profile-name {
     font-size: 26px;
     color: #1e3a8a;
@@ -49,13 +48,13 @@ body {
     text-decoration: underline;
 }
 
-/* conteúdo principal */
+
 .profile-content {
     max-width: 900px;
     margin: 0 auto 2px auto;
 }
 
-/* títulos */
+
 .profile-content h2 {
     font-size: 22px;
     color: #1e3a8a;
@@ -63,7 +62,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* parágrafos do conteúdo */
+
 .profile-content p {
     margin-bottom: 12px;
     line-height: 1.5;
@@ -84,7 +83,7 @@ body {
     justify-content: center;
 }
 
-/* botão */
+
 .back_button {
     margin-top: 5em;
     margin-bottom: 1.5em;
@@ -102,19 +101,64 @@ body {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* hover botão */
 .back_button:hover {
     background-color: #2563eb;
     transform: translateY(-2px);
 }
 
-/* clique botão */
+
 .back_button:active{
     transform: translateY(0);
 }
 
 
+@media (max-width: 768px) {
+    
+   
+    .profile-header {
+        flex-direction: column; 
+        text-align: center;
+        gap: 20px;
+    }
 
+    .profile-info {
+        align-items: center; 
+    }
+
+    .profile-name {
+        font-size: 22px; 
+    }
+
+     .profile-content {
+        padding: 0 10px; 
+    }
+
+    .profile-content p {
+        text-align: left;
+        font-size: 15px;
+    }
+  
+    .profile-content p.min-line-height {
+        line-height: 1.4; 
+        margin-bottom: 5px;
+    }
+
+    .formations {
+        margin-bottom: 1.5em;
+        padding-left: 10px;
+        border-left: 3px solid #3b82f6; 
+    }
+    
+    .back_button {
+        width: 100%; 
+        margin-top: 2em;
+    }
+   
+    .profile-linkedin a {
+        word-break: break-all; 
+        font-size: 14px;
+    }
+}
 
 
 

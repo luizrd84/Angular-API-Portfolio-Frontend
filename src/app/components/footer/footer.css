@@ -14,3 +14,14 @@
     font-size: 20px;
     color: #d2d6dd;
 }
+
+@media (max-width: 768px) {
+    .container_footer {
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+    }
+
+    .container_footer p {
+        font-size: 12px;
+    }
+}

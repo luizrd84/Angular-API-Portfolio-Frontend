@@ -150,7 +150,7 @@ npx tsx database/seed.ts
 - A aplicação está disponível no endereço:
 
 ```
-https://meu-portfolio-frontend.onrender.com/
+https://luizricardodias-portfolio.onrender.com/
 ```
 
 - **Nota**: A aplicação está hospedada no Render utilizando o plano gratuito.

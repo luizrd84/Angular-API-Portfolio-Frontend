@@ -1,5 +1,7 @@
 
 :host {
+  --basefont: 10px;  
+
   display: block;
   min-height: 100vh;
   padding: 3rem 2rem;
@@ -18,8 +20,8 @@
   margin-bottom: 3rem;  
 }
 
-.title_container h1 {
-  font-size: 2.5rem;
+.title_container h1 {  
+  font-size: calc(var(--basefont) * 4);
   font-weight: 700;
   margin: 0;
   border-left: 10px solid #2563eb;
@@ -27,8 +29,8 @@
 }
 
 .aboutme {
-  width: 80%;
-  font-size: 20px;
+  width: 80%;  
+  font-size: calc(var(--basefont) * 2);
   margin: 0 auto;
   margin-bottom: 3em;  
   max-width: 1000px;
@@ -48,12 +50,11 @@
   color: white;
   padding: 1.3rem 2.2rem;
   border: none;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 10px;  
   cursor: pointer;
   transition: all 0.25s ease;
-  margin-top: 3em;
-  font-size: 20px;
+  margin-top: 3em;  
+  font-size: calc(var(--basefont) * 2);
 
 }
 
@@ -65,14 +66,14 @@
 
 /* ESTADO DISABLED */
 .button_container button:disabled {
-  background: #9CA3AF; /* cinza */
+  background: #9CA3AF; 
   cursor: not-allowed;
   opacity: 0.7;
   transform: none;
   box-shadow: none;
 }
 
-/* OPCIONAL: evitar hover quando desabilitado */
+
 .button_container button:disabled:hover {
   background: #9CA3AF;
   transform: none;
@@ -92,24 +93,21 @@
 }
 
 
-/* SUBTÍTULO */
-h2 {
-  font-size: 2.5rem;
+
+h2 {  
+  font-size: calc(var(--basefont) * 4);
   margin-bottom: 2rem;
 }
 
-/* GRID DOS CARDS */
+
 .card_projects_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     gap: 24px;
-    justify-items: center;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem; */
+    justify-items: center;    
 }
 
-/* Ajuste opcional para o componente card */
+
 app-project-small-card {
   display: block;
   transition: transform 0.25s ease;
@@ -131,7 +129,7 @@ app-project-small-card:hover {
   color: #7c7878;
 }
 
-/* Spinner animado */
+
 .spinner {
   width: 50px;
   height: 50px;
@@ -163,4 +161,24 @@ app-project-small-card:hover {
   margin-top: 10px;
   font-weight: bold;
   color: #ff4d4d;
+}
+
+@media (max-width: 768px) {
+
+  :host {
+    padding: 1rem 0.2rem;
+    --basefont: 6px; 
+
+  }
+
+  .card_projects_container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 16px;
+    transform: none; 
+    width: 100%;
+  }
+
+
 }

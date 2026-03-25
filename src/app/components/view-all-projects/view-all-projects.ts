@@ -46,9 +46,7 @@ export class ViewAllProjects {
     this.tokenIsValid = !this.authService.isTokenExpired();
 
     this.checkBackend();
-    
-    // this.loadData(); //Transferido para o checkBackend
-     
+        
   }
 
   ngOnDestroy() {
